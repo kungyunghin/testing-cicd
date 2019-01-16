@@ -7,6 +7,12 @@
 	"scripts": {
 		"start": "node server.js"
 	},
+	"keywords": [
+		"api",
+		"boilerplate",
+		"express",
+		"es6"
+	],
 	"dependencies": {
 		"express": "^4.16.1",
 		"cors": "^2.8.4"
