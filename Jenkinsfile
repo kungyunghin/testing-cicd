@@ -5,7 +5,7 @@ pipeline {
         agent any
         steps {
             checkout scm
-            sh 'checkout success'
+            sh 'checkout success update'
         }
     }
   }
