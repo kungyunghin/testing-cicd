@@ -8,6 +8,9 @@ api.use(cors());
 api.get("/", (req, res)=>{
 	res.send("Hello World");
 })
+app.get("/home", (req, res)=>{
+	res.send("./public/index.html")
+})
 api.listen(port, () => {
 	console.log(`API is now running on port ${port}`);
 });

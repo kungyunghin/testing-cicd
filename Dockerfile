@@ -2,14 +2,12 @@
 FROM node:8
 
 # set working directory
-WORKDIR /app
-COPY package*.json /app/
+COPY package*.json ./
+COPY server.js ./
 RUN npm install
-COPY . /app
 # bundle source code
-COPY . .
 
-# expose port 3000
+# expose port 8080
 EXPOSE 8080
 
 # start app with yarn
