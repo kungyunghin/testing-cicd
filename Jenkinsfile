@@ -29,10 +29,9 @@ def notifyBuild(String buildStatus = 'STARTED') {
 
 pipeline {
   agent any
-
-  stages {
-    try {
-      notifyBuild('STARTED')
+  try {
+    notifyBuild('STARTED')
+    stages {
       stage('Build') {
         steps {
           echo 'Building..'
@@ -48,13 +47,13 @@ pipeline {
           echo 'Deploying....'
         }
       }
-    } catch (e) {
-      // If there was an exception thrown, the build failed
-      currentBuild.result = "FAILED"
-      throw e
-    } finally {
-      // Success or failure, always send notifications
-      notifyBuild(currentBuild.result)
     }
+  } catch (e) {
+    // If there was an exception thrown, the build failed
+    currentBuild.result = "FAILED"
+    throw e
+  } finally {
+    // Success or failure, always send notifications
+    notifyBuild(currentBuild.result)
   }
 }
